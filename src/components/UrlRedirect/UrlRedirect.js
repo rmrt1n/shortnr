@@ -14,16 +14,19 @@ export default function UrlRedirect() {
         }
       })
       .then((json) => {
-        window.location.href = '//' + json.long_url;
+        window.location.href = json.long_url.match(/http[s]/i)
+          ? json.long_url
+          : `//${json.long_url}`;
       })
       .catch((e) => {
-        console.log(e.message)
+        alert('Invalid Short Url')
+        window.location.href= '/'
       })
   }, [slug])
 
   return (
-    <div class="flex justify-center items-center min-h-screen">
-      <h1 class="text-4xl font-bold">Redirecting you...</h1>
+    <div className="flex justify-center items-center min-h-screen">
+      <h1 className="text-4xl font-bold">Redirecting you...</h1>
     </div>
   )
 }
