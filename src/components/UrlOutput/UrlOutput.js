@@ -5,7 +5,7 @@ export default function UrlOutput({ shortUrl }) {
 
   return (
     <div className="border-2 border-green-100 p-3 rounded flex justify-center items-center font-mono">
-      <a href={ shortUrl } rel="noreferrer" target="_blank" className="underline">{ shortUrl }</a>
+      <a href={ `//${shortUrl}` } rel="noreferrer" target="_blank" className="underline">{ shortUrl }</a>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         className="h-6 w-6 ml-2 cursor-pointer" 
